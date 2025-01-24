@@ -4,14 +4,8 @@
     {
         static void Main(string[] args)
         {
-            int iKorean = 10;
-            int iMath = 100;
-            int iEnglish = 50;
+            Console.WriteLine("Hello, World!");
 
-            int iTotal = iKorean + iMath + iEnglish;
-            float fAverage = iTotal / 3.0f;
-            Console.WriteLine(iTotal);
-            Console.WriteLine(fAverage);
         }
     }
 }
