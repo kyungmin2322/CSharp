@@ -4,12 +4,14 @@
     {
         static void Main(string[] args)
         {
-            int iSize = 10;
-            for(int i = 1; i <= iSize; i++)
+            int[,] iData = new int[5, 5];
+            int iSize = 5;
+            for(int i = 0; i < iSize; i++)
             {
-                for(int j = 1; j <= i; j++)
+                for(int j = 0; j < iSize; j++)
                 {
                     Console.Write("*");
+                    iData[i, j] = j;
                 }
                 Console.WriteLine();
             }
