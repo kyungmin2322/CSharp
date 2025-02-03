@@ -4,17 +4,21 @@
     {
         static void Main(string[] args)
         {
-            int iSize = 5;
+            int iSize = 10;
+            int[,] iData = new int[iSize, iSize];
 
-            for(int i = 1; i <= iSize; i++)
+            for(int i = 0; i < iSize; i++)
             {
-                for(int j = 1; j <= iSize - i; j++)
+                for(int j = 0; j < iSize; j++)
                 {
-                    Console.Write(' ');
+                    iData[i, j] = (i * 10) + j + 1;
                 }
-                for(int j = 1; j <= i; j++)
+            }
+            for(int i = 0; i < iSize; i++)
+            {
+                for(int j = 0; j < iSize; j++)
                 {
-                    Console.Write('*');
+                    Console.Write(iData[i, j] + "\t");
                 }
                 Console.WriteLine();
             }
