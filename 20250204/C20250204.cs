@@ -4,26 +4,31 @@
     {
         static void Main(string[] args)
         {
-            int[] array = new int[52];
-            Random rand = new Random();
+            int[] deck = new int[52];
 
-            for(int i = 0; i < array.Length; i++)
+            for(int i = 0; i < deck.Length; i++)
             {
-                array[i] = i + 1;
+                deck[i] = i + 1;
             }
 
+            // Shuffle
+            Random random = new Random();
+
+            for(int i = 0; i < deck.Length * 10; i++)
+            {
+                int firstCard = random.Next(0, deck.Length);
+                int secondCard = random.Next(0, deck.Length);
+
+                int temp = deck[firstCard];
+                deck[firstCard] = deck[secondCard];
+                deck[secondCard] = temp;
+            }
+
+            // Print
             for(int i = 0; i < 8; i++)
             {
-                // 랜덤 값 생성
-                int arrayNum = rand.Next(i, array.Length);
-
-                Console.Write($"{array[arrayNum]}, ");
-
-                int temp = array[arrayNum];
-                array[arrayNum] = array[i];
-                array[i] = temp;
+                Console.WriteLine(deck[i]);
             }
-
         }
     }
 }
