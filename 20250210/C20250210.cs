@@ -1,64 +1,44 @@
 ﻿namespace _20250210
 {
-    class Apple
+    public class Image
     {
-        public enum EColor
+        public Image()
         {
-            Red,
-            Green,
-            Blue,
-            Yellow,
-            White,
-        };
-
-        public EColor color;
-        public bool taste;
-        public int shape;
-        public int hp = 100;
-
-        public void CanEat()
-        {
-            hp -= 10;
-            Console.WriteLine($"현재 HP {hp}");
+            X = 0;
+            Y = 0;
+            R = 255;
+            G = 255;
+            B = 255;
+            Console.WriteLine("생성자");
         }
-        public void Drop(Position target)
+        ~Image()
         {
-
+            Console.WriteLine("소멸자");
         }
 
-        public static void Die()
-        {
-            Console.WriteLine("죽었다.");
-        }
-    }
-
-    struct Position
-    {
-        public int x;
-        public int y;
+        public int X;
+        public int Y;
+        public int R;
+        public int G;
+        public int B;
     }
 
     internal class C20250210
     {
         static void Main(string[] args)
         {
-            //Position[] positions = new Position[10];
-            //positions[0].x = 12;
-            //positions[0].y = 12;
+            Image[] images = new Image[2];
+            images[0] = new Image();
+            images[0].X = 0;
+            images[0].Y = 0;
+            images[0].R = 0;
+            images[0].G = 0;
+            images[0].B = 0;
 
-            //Apple[] apple = new Apple[3]; // stack 참조 변수
-            //for(int i = 0; i < apple.Length; i++)
-            //{
-            //    apple[i] = new Apple(); // heap apple 형태 메모리 공간 확보
-            //}
+            for(int i = 0; i < images.Length; i++)
+            {
 
-            //apple[0].color = Apple.EColor.Yellow;
-            //apple[1].color = Apple.EColor.Yellow;
-            //apple[2].color = Apple.EColor.Yellow;
-
-            //apple[0].CanEat();
-
-            Apple.Die();
+            }
         }
     }
 }
