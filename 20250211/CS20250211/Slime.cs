@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CS20250211
 {
-    public class Slime
+    public class Slime : Monster
     {
         public Slime()
         {
@@ -16,23 +16,9 @@ namespace CS20250211
         {
             Console.WriteLine("슬라임 소멸자");
         }
-
-        public int hp;
-        public int gold;
-
-        public void Attack()
-        {
-
-        }
-
-        public void Move()
+        public override void Move()
         {
             Console.WriteLine("슬라임이 미끄러진다.");
-        }
-
-        public void Die()
-        {
-
         }
     }
 }

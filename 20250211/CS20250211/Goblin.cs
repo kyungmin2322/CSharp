@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CS20250211
 {
-    public class Goblin
+    public class Goblin : Monster
     {
         public Goblin()
         {
@@ -16,23 +16,9 @@ namespace CS20250211
         {
             Console.WriteLine("고블린 소멸자");
         }
-
-        public int hp;
-        public int gold;
-
-        public void Attack()
-        {
-
-        }
-
-        public void Move()
+        public override void Move()
         {
             Console.WriteLine("고블린이 걷는다.");
-        }
-
-        public void Die()
-        {
-
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CS20250211
 {
-    public class Boar
+    public class Boar : Monster
     {
         public Boar()
         {
@@ -16,23 +16,9 @@ namespace CS20250211
         {
             Console.WriteLine("멧돼지 소멸자");
         }
-
-        public int hp;
-        public int gold;
-
-        public void Attack()
-        {
-
-        }
-
-        public void Move()
+        public override void Move()
         {
             Console.WriteLine("멧돼지가 뛴다.");
-        }
-
-        public void Die()
-        {
-
         }
     }
 }
