@@ -35,6 +35,13 @@ monster is a goblin. XXXX
 모은다. : 플레이어
 죽는다. : 플레이어
 
+[4교시]
+public : 캡슐화 O, 상속 O
+protected : 캡슐화 X, 상속 O
+private : 캡슐화 X, 상속 X
+
+
+
 
 
 

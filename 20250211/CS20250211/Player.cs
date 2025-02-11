@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CS20250211
 {
-    public class Player
+    public class Player : Character
     {
         public Player()
         {
@@ -25,29 +25,6 @@ namespace CS20250211
         {
             // Network, DB 종료
             Console.WriteLine("플레이어 소멸자");
-        }
-
-        public int hp;
-        public int gold;
-
-        public void Attack()
-        {
-
-        }
-
-        public void Move()
-        {
-            Console.WriteLine("플레이어가 움직인다.");
-        }
-
-        public void Collect()
-        {
-
-        }
-
-        public void Die()
-        {
-
         }
     }
 }
