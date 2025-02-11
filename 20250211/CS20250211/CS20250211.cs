@@ -9,6 +9,7 @@
         static void Main(string[] args)
         {
             Sample();
+            GC.Collect();
         }
     }
 }
