@@ -38,7 +38,10 @@ monster is a goblin. XXXX
 [4교시]
 public : 캡슐화 O, 상속 O
 protected : 캡슐화 X, 상속 O
-private : 캡슐화 X, 상속 X
+private : 캡슐화 X, 상속 X                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+
+[5교시]
+리스트는 느려                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
 
 
 
