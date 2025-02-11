@@ -10,12 +10,15 @@ namespace CS20250211
     {
         public Player()
         {
-
+            Console.WriteLine("플레이어 생성자");
         }
         ~Player()
         {
-
+            Console.WriteLine("플레이어 소멸자");
         }
+
+        public int hp;
+        public int gold;
 
         public void Attack()
         {
@@ -24,7 +27,7 @@ namespace CS20250211
 
         public void Move()
         {
-
+            Console.WriteLine("플레이어가 움직인다.");
         }
 
         public void Collect()
@@ -32,6 +35,9 @@ namespace CS20250211
 
         }
 
+        public void Die()
+        {
 
+        }
     }
 }

@@ -10,9 +10,27 @@ namespace CS20250211
     {
         public Goblin()
         {
-
+            Console.WriteLine("고블린 생성자");
         }
         ~Goblin()
+        {
+            Console.WriteLine("고블린 소멸자");
+        }
+
+        public int hp;
+        public int gold;
+
+        public void Attack()
+        {
+
+        }
+
+        public void Move()
+        {
+            Console.WriteLine("고블린이 걷는다.");
+        }
+
+        public void Die()
         {
 
         }

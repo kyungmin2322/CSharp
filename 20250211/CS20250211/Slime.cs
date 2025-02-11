@@ -8,7 +8,31 @@ namespace CS20250211
 {
     public class Slime
     {
-        public Slime() { }
-        ~Slime() { }
+        public Slime()
+        {
+            Console.WriteLine("슬라임 생성자");
+        }
+        ~Slime()
+        {
+            Console.WriteLine("슬라임 소멸자");
+        }
+
+        public int hp;
+        public int gold;
+
+        public void Attack()
+        {
+
+        }
+
+        public void Move()
+        {
+            Console.WriteLine("슬라임이 미끄러진다.");
+        }
+
+        public void Die()
+        {
+
+        }
     }
 }
