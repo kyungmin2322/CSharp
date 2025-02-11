@@ -4,7 +4,11 @@
     {
         static void Sample()
         {
-            Player player = new Player();
+            // 생산자 오버로드
+            // 파일 입력
+            // 거기 있는 정보로 세팅
+
+            Player player = new Player(10, 100);
         }
         static void Main(string[] args)
         {
