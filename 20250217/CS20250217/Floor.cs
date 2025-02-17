@@ -8,6 +8,16 @@ namespace CS20250217
 {
     public class Floor : GameObject
     {
+        public Floor(int inX, int inY, char inShape)
+        {
+            X = inX;
+            Y = inY;
+            Shape = inShape;
+        }
 
+        public override void Render()
+        {
+
+        }
     }
 }

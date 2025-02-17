@@ -8,6 +8,11 @@ namespace CS20250217
 {
     public class Wall : GameObject
     {
-
+        public Wall(int inX, int inY, char inShape)
+        {
+            X = inX;
+            Y = inY;
+            Shape = inShape;
+        }
     }
 }

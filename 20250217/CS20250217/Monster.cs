@@ -8,6 +8,11 @@ namespace CS20250217
 {
     public class Monster : GameObject
     {
-
+        public Monster(int inX, int inY, char inShape)
+        {
+            X = inX;
+            Y = inY;
+            Shape = inShape;
+        }
     }
 }

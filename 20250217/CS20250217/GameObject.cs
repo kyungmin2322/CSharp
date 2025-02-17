@@ -10,6 +10,7 @@ namespace CS20250217
     {
         public int X;
         public int Y;
+        public char Shape; // Mesh, Sprite
 
         public virtual void Update()
         {
@@ -18,7 +19,9 @@ namespace CS20250217
 
         public virtual void Render()
         {
-
+            // X, Y 위치에 Shape 출력
+            Console.SetCursorPosition(X, Y);
+            Console.Write(Shape);
         }
 
 

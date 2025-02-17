@@ -8,7 +8,14 @@ namespace CS20250217
 {
     public class World
     {
-        public GameObject[] gameObjects;
+        public GameObject[] gameObjects = new GameObject[100];
+        int useGameObjectCount = 0;
+
+        public void Instanciate(GameObject gameObject)
+        {
+            gameObjects[gameObjects.Length - 1] = gameObject;
+            useGameObjectCount++;
+        }
 
         public void Update()
         {
