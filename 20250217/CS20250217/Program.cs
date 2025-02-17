@@ -29,13 +29,7 @@ namespace CS20250217
         }
         static void Main(string[] args)
         {
-            Engine engine = new Engine();
 
-            engine.Load();
-
-            engine.Run();
-
-            // engine.Stop();
         }
     }
 }

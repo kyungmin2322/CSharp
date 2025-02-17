@@ -13,7 +13,7 @@ namespace CS20250217
 
         public void Instanciate(GameObject gameObject)
         {
-            gameObjects[gameObjects.Length - 1] = gameObject;
+            gameObjects[useGameObjectCount] = gameObject;
             useGameObjectCount++;
         }
 

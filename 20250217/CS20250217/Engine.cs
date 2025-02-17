@@ -8,13 +8,30 @@ namespace CS20250217
 {
     public class Engine
     {
+        private Engine()
+        {
+
+        }
+
+        static protected Engine instance;
+
+        static public Engine Instance
+        {
+            get
+            {
+                if(instance == null)
+                {
+                    instance = new Engine();
+                }
+                return instance;
+            }
+        }
+
         protected bool isRunning = true;
 
-        protected ConsoleKeyInfo keyInfo;
-
-        public void Input()
+        public void ProcessInput()
         {
-            keyInfo = Console.ReadKey();
+            Input.Process();
         }
 
         public void Load()
@@ -75,6 +92,7 @@ namespace CS20250217
 
         protected void Render()
         {
+            Console.Clear();
             world.Render();
         }
 
@@ -82,7 +100,7 @@ namespace CS20250217
         {
             while(isRunning)
             {
-                Input();
+                ProcessInput();
                 Update();
                 Render();
             }
