@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace CS20250217
 {
-    public class Wall
+    public class Wall : GameObject
     {
+
     }
 }

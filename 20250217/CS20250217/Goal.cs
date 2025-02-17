@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace CS20250217
 {
-    public class Goal
+    public class Goal : GameObject
     {
+
     }
 }
