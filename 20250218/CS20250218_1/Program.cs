@@ -2,114 +2,51 @@
 {
     class DynamicArray
     {
-        public DynamicArray()
-        {
-
-        }
-
-        ~DynamicArray()
-        {
-
-        }
-
-        public void Add(Object inObject)
-        {
-            if(CurrentPosition >= objects.Length)
-            {
-                // 배열 늘리기 작업
-                // 이전 정보 옮기기
-
-                Object[] newObjects = new Object[objects.Length * 2];
-
-                // 이전 값 이동
-                for(int i = 0; i < objects.Length; ++i)
-                {
-                    newObjects[i] = objects[i];
-                }
-                objects = null;
-                objects = newObjects;
-            }
-            objects[CurrentPosition] = inObject;
-            CurrentPosition++;
-            count = CurrentPosition;
-        }
-
-        public void Insert(int insertIndex, Object value)
-        {
-            for(int i = Count - 1; i >= insertIndex; i--)
-            {
-                objects[i + 1] = objects[i];
-            }
-            objects[insertIndex] = value;
-
-        }
-
-        // 특정 배열의 단어 혹은 수를 직접 지정하여 삭제
-        public bool Remove(Object removeObject)
-        {
-            for(int i = 0; i < count; ++i)
-            {
-                if(removeObject == objects[i])
-                {
-                    return RemoveAt(i);
-                }
-            }
-            return false;
-        }
-
-        // 단어가 아닌 배열의 위치를 찾아 위치의 배열을 삭제
-        public bool RemoveAt(int index)
-        {
-            if(index >= 0 && index < Count)
-            {
-                for (int i = index; i < Count - 1; i++)
-                {
-                    objects[i] = objects[i + 1];
-                }
-                count--;
-
-                return true;
-            }
-            return false;
-        }
-
-        protected Object[] objects = new Object[3];
-
-        protected int CurrentPosition = 0;
-
-        public int count = 0;
-        public int Count
-        {
-            get { return count; }
-        }
-
-        public Object this[int index]
-        {
-            get
-            {
-                return objects[index];
-            }
-            set
-            {
-                if(index < objects.Length)
-                {
-                    objects[index] = value;
-                }
-            }
-        }
     }
 
     class Program
     {
+        // Overloading
+        // Generic Programming -> meta Programming
+        static public void Print<T>(T[] data)
+        {
+            for(int i = 0; i < data.Length; ++i)
+            {
+                Console.WriteLine(data[i]);
+            }
+        }
+
+        //static public T Add<T>(T A, T B) // where T : struct { } 제약조건
+        //{
+        //    return A + B;
+        //}
+
         static void Main(string[] args)
         {
+            //int[] numbers = { 1, 2, 3, 4 };
+            //char[] numbersToChar = { 'A', 'B', 'C', 'D' };
+            //string[] numbersToString = { "1111", "2222", "3333", "4444" };
+
+            //GameObject[] a = new GameObject[3];
+
+            //a[0] = new GameObject();
+            //a[1] = new GameObject();
+            //a[2] = new GameObject();
+
+            ////Print<int>(numbers);
+            ////Print<char>(numbersToChar);
+            ////Print<string>(numbersToString);
+            ////Print(gameObjects);
+
+            //return;
+
             // []                   variable
             // [][][][][]           array
             // [][][][][][][][][][] DynamicArray
 
             // DataStructure        자료구조
 
-            DynamicArray a = new DynamicArray();
+            TDynamicArray<int> a = new TDynamicArray<int>();
 
             for (int i = 0; i < 10; ++i)
             {
