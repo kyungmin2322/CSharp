@@ -34,6 +34,16 @@
             count = CurrentPosition;
         }
 
+        public void Remove(Object removeObject)
+        {
+
+        }
+
+        public void RemoveAt(int index)
+        {
+
+        }
+
         protected Object[] objects = new Object[3];
 
         protected int CurrentPosition = 0;
