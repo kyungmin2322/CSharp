@@ -62,10 +62,17 @@
 
             a.Insert(2, 99);
 
-            for (int i = 0; i < a.Count; ++i)
-            {
-                Console.Write(a[i] + ", ");
-            }
+            a.Remove(7);
+
+            TDynamicArray<GameObject> gameObjects = new TDynamicArray<GameObject>();
+
+            GameObject testObject = new GameObject();
+            gameObjects.Add(testObject);
+
+            //for (int i = 0; i < a.Count; ++i)
+            //{
+            //    Console.Write(a[i] + ", ");
+            //}
         }
     }
 }

@@ -8,7 +8,7 @@ namespace CS20250218_1
 {
     // Generic Class
     // 박싱, 언박싱으로 성능 떨어지는거 방지위해 사용
-    class TDynamicArray<T>
+    class TDynamicArray<T> // where T : new()
     {
         public TDynamicArray()
         {

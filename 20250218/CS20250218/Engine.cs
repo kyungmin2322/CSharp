@@ -116,7 +116,11 @@ namespace CS20250218
         {
             while(isRunning)
             {
-                if (isClear == true) return;
+                if (isClear == true)
+                {
+                    Console.WriteLine("=====GameClear=====");
+                    return;
+                }
                 ProcessInput();
                 Update();
                 Render();
