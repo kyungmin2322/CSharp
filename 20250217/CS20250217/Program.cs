@@ -31,8 +31,8 @@ namespace CS20250217
         */
         static void Main(string[] args)
         {
-            Engine.Instance.Load();
-            Engine.Instance.Run();
+            //Engine.Instance.Load();
+            //Engine.Instance.Run();
             /*
             // Sort(정렬)
             int [] numbers = { 1, 5, 2, 3, 6, 7, 8, 10, 9 };
@@ -52,7 +52,24 @@ namespace CS20250217
                 }
             }
             */
-            // engine.Stop();
-        }
+
+            try
+            {
+                List<string> scene = new List<string>();
+
+                StreamReader sr = new StreamReader("level03.map");
+                while(!sr.EndOfStream)
+                {
+                    scene.Add(sr.ReadLine());
+                }
+                sr.Close();
+            }
+            catch(FileNotFoundException ex)
+            {
+				Console.WriteLine(ex.FileName);
+                Console.WriteLine(ex.Source);
+				Console.WriteLine(ex.Message);
+            }
+		}
     }
 }

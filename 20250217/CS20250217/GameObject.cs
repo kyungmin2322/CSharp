@@ -12,6 +12,8 @@ namespace CS20250217
         public int Y;
         public char Shape; // Mesh, Sprite
         public int orderLayer;
+        public bool isTrigger = false;
+        public bool isCollide = true;
 
         public virtual void Update()
         {

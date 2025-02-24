@@ -34,25 +34,35 @@ namespace CS20250217
             Input.Process();
         }
 
-        public void Load()
+        public void Load(string filename)
         {
-            // file에서 로딩
-            string[] scene = {
-                "**********",
-                "*P       *",
-                "*        *",
-                "*        *",
-                "*        *",
-                "*    M   *",
-                "*        *",
-                "*        *",
-                "*       G*",
-                "**********"
-            };
+            /*
+			string tempScene = "";
+			byte [] buffer = new byte [1024];
+			FileStream fs = new FileStream("level01.map", FileMode.Open);
 
-            world = new World();
+			fs.Seek(0, SeekOrigin.End);
+			long fileSize = fs.Position;
+
+			fs.Seek(0, SeekOrigin.Begin);
+			int readCount = fs.Read(buffer, 0, (int)fileSize);
+			tempScene = Encoding.UTF8.GetString(buffer);
+            tempScene = tempScene.Replace("\0", "");
+			string [] scene = tempScene.Split("\r\n");
+            */
+
+            List<string> scene = new List<string>();
+
+            StreamReader sr = new StreamReader(filename);
+            while(!sr.EndOfStream)
+            {
+                scene.Add(sr.ReadLine());
+            }
+            sr.Close();
+
+			world = new World();
             
-            for(int y = 0; y < scene.Length; y++)
+            for(int y = 0; y < scene.Count; y++)
             {
                 for(int x = 0; x < scene[y].Length; x++)
                 {
