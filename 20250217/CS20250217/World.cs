@@ -8,18 +8,17 @@ namespace CS20250217
 {
     public class World
     {
-        public GameObject[] gameObjects = new GameObject[100];
-        int useGameObjectCount = 0;
+        // public GameObject[] gameObjects = new GameObject[100];
+        List<GameObject> gameObjects = new List<GameObject>();
 
         public void Instanciate(GameObject gameObject)
         {
-            gameObjects[useGameObjectCount] = gameObject;
-            useGameObjectCount++;
+            gameObjects.Add(gameObject);
         }
 
         public void Update()
         {
-            for(int i = 0; i < gameObjects.Length; i++)
+            for(int i = 0; i < gameObjects.Count; i++)
             {
                 gameObjects[i].Update();
             }
@@ -27,7 +26,7 @@ namespace CS20250217
 
         public void Render()
         {
-            for(int i = 0; i < gameObjects.Length;i++)
+            for(int i = 0; i < gameObjects.Count; i++)
             {
                 gameObjects[i].Render();
             }
