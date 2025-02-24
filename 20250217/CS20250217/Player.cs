@@ -13,25 +13,35 @@ namespace CS20250217
             X = inX;
             Y = inY;
             Shape = inShape;
+            orderLayer = 4;
         }
 
         public override void Update()
         {
+            int newX = X;
+            int newY = Y;
+
             if(Input.GetKeyDown(ConsoleKey.W) || Input.GetKeyDown(ConsoleKey.UpArrow))
             {
-                Y--;
+                newY--;
             }
             if (Input.GetKeyDown(ConsoleKey.S) || Input.GetKeyDown(ConsoleKey.DownArrow))
             {
-                Y++;
+                newY++;
             }
             if (Input.GetKeyDown(ConsoleKey.A) || Input.GetKeyDown(ConsoleKey.LeftArrow))
             {
-                X--;
+                newX--;
             }
             if (Input.GetKeyDown(ConsoleKey.D) || Input.GetKeyDown(ConsoleKey.RightArrow))
             {
-                X++;
+                newX++;
+            }
+
+            if(!Engine.Instance.world.IsWall(newX, newY))
+            {
+                X = newX;
+                Y = newY;
             }
         }
     }

@@ -11,6 +11,7 @@ namespace CS20250217
         public int X;
         public int Y;
         public char Shape; // Mesh, Sprite
+        public int orderLayer;
 
         public virtual void Update()
         {

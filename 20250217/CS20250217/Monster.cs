@@ -14,28 +14,36 @@ namespace CS20250217
             X = inX;
             Y = inY;
             Shape = inShape;
+            orderLayer = 5;
         }
 
         public override void Update()
         {
-
-            int randomValue = rand.Next(0, 3);
+            int newX = X;
+            int newY = Y;
+            int randomValue = rand.Next(0, 4);
 
             switch(randomValue)
             {
                 case 0:
-                    Y++;
+                    newY++;
                     break;
                 case 1:
-                    Y--;
+					newY--;
                     break;
                 case 2:
-                    X++;
+                    newX++;
                     break;
                 case 3:
-                    X--;
+                    newX--;
                     break;
             }
-        }
+
+			if (!Engine.Instance.world.IsWall(newX, newY))
+			{
+				X = newX;
+				Y = newY;
+			}
+		}
     }
 }
