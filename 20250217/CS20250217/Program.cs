@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CS20250217
 {
-    internal class Program
+    public class Program
     {
-        /*
+		/*
         class Singleton
         {
             private Singleton()
@@ -29,7 +30,23 @@ namespace CS20250217
             }
         }
         */
-        static void Main(string[] args)
+        /* 20250224
+		//Network에 접속 했지만 비밀번호가 틀리다.
+		class CustomException : Exception
+		{
+			public CustomException() : base("이거 내가 만든 예외")
+			{
+			}
+		}
+
+		class WrongPasswordException : Exception
+		{
+			public WrongPasswordException() : base("비번 틀림")
+			{
+			}
+		}
+        */
+		static void Main(string[] args)
         {
             //Engine.Instance.Load();
             //Engine.Instance.Run();
@@ -52,17 +69,19 @@ namespace CS20250217
                 }
             }
             */
-
-            try
+            /* 20250224
+            StreamReader sr = null;
+			try
             {
                 List<string> scene = new List<string>();
 
-                StreamReader sr = new StreamReader("level03.map");
+                sr = new StreamReader("level02.map");
                 while(!sr.EndOfStream)
                 {
                     scene.Add(sr.ReadLine());
-                }
-                sr.Close();
+					//throw new CustomException();
+				}
+				// throw new WrongPasswordException();
             }
             catch(FileNotFoundException ex)
             {
@@ -70,6 +89,24 @@ namespace CS20250217
                 Console.WriteLine(ex.Source);
 				Console.WriteLine(ex.Message);
             }
+            catch(WrongPasswordException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+				//network, file 입출력
+				Console.WriteLine("finally");
+				sr.Close();
+			}
+            */
+
+            Engine.Instance.Load("level01.map");
+            Engine.Instance.Run();
 		}
     }
 }

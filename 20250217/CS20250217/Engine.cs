@@ -15,7 +15,11 @@ namespace CS20250217
 
         static protected Engine instance;
 
-        static public Engine Instance
+        // 더블 버퍼링
+        static public char[,] backBuffer = new char[20, 40];
+		static public char[,] frontBuffer = new char[20, 40];
+
+		static public Engine Instance
         {
             get
             {
@@ -28,11 +32,6 @@ namespace CS20250217
         }
 
         protected bool isRunning = true;
-
-        public void ProcessInput()
-        {
-            Input.Process();
-        }
 
         public void Load(string filename)
         {
@@ -100,24 +99,51 @@ namespace CS20250217
             world.Sort();
         }
 
-        protected void Update()
+		public void ProcessInput()
+		{
+			Input.Process();
+		}
+
+		protected void Update()
         {
             world.Update();
         }
 
         protected void Render()
         {
-            Console.Clear();
+            // IO 제일 느림, 모니터 출력, 메모리
+            //Console.Clear();
             world.Render();
+
+            // 메모리에 있는 것을 한 방에 붙여줌
+            for(int Y = 0; Y < 20; ++Y)
+            {
+                for(int X = 0; X < 40; ++X)
+                {
+                    if(Engine.frontBuffer[Y, X] != Engine.backBuffer[Y, X])
+                    {
+                        Engine.frontBuffer[Y, X] = Engine.backBuffer[Y, X];
+                        Console.SetCursorPosition(X, Y);
+                        Console.Write(frontBuffer[Y, X]);
+                    }
+                }
+            }
         }
+
+        public DateTime lastTime;
 
         public void Run()
         {
+            double fps = 1.0 / Time.deltaTime.TotalMilliseconds;
+            Console.CursorVisible = false;
             while(isRunning)
             {
+                Time.Update();
+
                 ProcessInput();
                 Update();
                 Render();
+                Input.ClearInput();
             }
         }
 

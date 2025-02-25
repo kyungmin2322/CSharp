@@ -15,7 +15,10 @@ namespace CS20250217
 
         public static void Process()
         {
-            keyInfo = Console.ReadKey();
+            if(Console.KeyAvailable)
+            {
+                keyInfo = Console.ReadKey(true);
+            }
         }
 
         static protected ConsoleKeyInfo keyInfo;

@@ -14,6 +14,7 @@ namespace CS20250217
             Y = inY;
             Shape = inShape;
             orderLayer = 3;
+            isTrigger = true;
         }
     }
 }

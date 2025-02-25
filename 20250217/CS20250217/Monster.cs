@@ -15,6 +15,7 @@ namespace CS20250217
             Y = inY;
             Shape = inShape;
             orderLayer = 5;
+            isTrigger = true;
         }
 
         public override void Update()

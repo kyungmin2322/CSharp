@@ -12,6 +12,11 @@ namespace CS20250217
 		List<GameObject> gameObjects = new List<GameObject>();
 		// List<GameObject> visibleList = new List<GameObject>();
 
+        public List<GameObject> GetAllGameObjects
+        {
+            get { return gameObjects; }
+        }
+
 		public void Instanciate(GameObject gameObject)
         {
             gameObjects.Add(gameObject);
@@ -36,18 +41,19 @@ namespace CS20250217
         public void Sort()
         {
             // gameObjects.Sort();
-			for ( int i = 0; i < gameObjects.Count; i++ )
-			{
-				for ( int j = i + 1; j < gameObjects.Count; j++ )
-				{
-                    if ( gameObjects[i].orderLayer - gameObjects[j].orderLayer > 0)
+
+            for(int i = 0; i < gameObjects.Count; i++)
+            {
+                for(int j = i + 1; j < gameObjects.Count; j++)
+                {
+                    if(gameObjects[i].orderLayer - gameObjects[j].orderLayer > 0)
                     {
                         GameObject temp = gameObjects[i];
                         gameObjects[i] = gameObjects[j];
                         gameObjects[j] = temp;
                     }
-				}
-			}
+                }
+            }
 		}
         
         public bool IsWall(int x, int y)
