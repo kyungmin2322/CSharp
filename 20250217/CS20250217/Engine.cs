@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SDL2;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,7 +34,46 @@ namespace CS20250217
 
         protected bool isRunning = true;
 
-        public void Load(string filename)
+        // 20250304 SDL 추가
+        public IntPtr myWindow;
+        public IntPtr myRenderer;
+        public SDL.SDL_Event myEvent;
+
+		// 20250304 SDL 추가
+		public bool Init()
+		{
+			if(SDL.SDL_Init(SDL.SDL_INIT_EVERYTHING) < 0)
+			{
+				Console.WriteLine("Fail Init.");
+				return false;
+			}
+
+			myWindow = SDL.SDL_CreateWindow(
+				"Game",
+				100, 100,
+				640, 480,
+				SDL.SDL_WindowFlags.SDL_WINDOW_SHOWN);
+
+			myRenderer = SDL.SDL_CreateRenderer(myWindow, -1,
+				SDL.SDL_RendererFlags.SDL_RENDERER_ACCELERATED |
+				SDL.SDL_RendererFlags.SDL_RENDERER_PRESENTVSYNC |
+				SDL.SDL_RendererFlags.SDL_RENDERER_TARGETTEXTURE);
+
+			return true;
+		}
+
+		// 20250304 SDL 추가
+		public bool Quit()
+        {
+            SDL.SDL_DestroyRenderer(myRenderer);
+            SDL.SDL_DestroyWindow(myWindow);
+
+            SDL.SDL_Quit();
+
+            return true;
+        }
+
+		public void Load(string filename)
         {
             /*
 			string tempScene = "";
@@ -110,7 +150,11 @@ namespace CS20250217
         }
 
         protected void Render()
-        {
+		{
+			// 20250304 SDL 추가
+			SDL.SDL_SetRenderDrawColor(myRenderer, 0, 0, 0, 0);
+            SDL.SDL_RenderClear(myRenderer);
+
             // IO 제일 느림, 모니터 출력, 메모리
             //Console.Clear();
             world.Render();
@@ -128,19 +172,34 @@ namespace CS20250217
                     }
                 }
             }
+
+			// 20250304 SDL 추가
+			SDL.SDL_RenderPresent(myRenderer);
         }
 
-        public DateTime lastTime;
+        // public DateTime lastTime;
 
 		public void Run()
 		{
-			float frameTime = 1000.0f / 60.0f;
-			float elapsedTime = 0;
+			// 20250304 SDL 추가
+			//float frameTime = 1000.0f / 60.0f;
+			//float elapsedTime = 0;
 			Console.CursorVisible = false;
+
 			while(isRunning)
 			{
+                SDL.SDL_PollEvent(out myEvent);
+
 				Time.Update();
 
+                switch(myEvent.type)
+                {
+                    case SDL.SDL_EventType.SDL_QUIT:
+                        isRunning = false;
+                        break;
+                }
+				// 20250304 SDL 추가
+				/*
 				ProcessInput();
 				Update();
 				if(elapsedTime >= frameTime)
@@ -152,8 +211,10 @@ namespace CS20250217
 				{
 					elapsedTime += Time.deltaTime;
 				}
+                */
 
-				Input.ClearInput();
+                Update();
+                Render();
 			}
 		}
 
