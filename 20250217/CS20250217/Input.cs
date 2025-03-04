@@ -26,8 +26,12 @@ namespace CS20250217
 		}
 
 		static protected ConsoleKeyInfo keyInfo;
+		static public bool GetKeyDown(ConsoleKey key)
+		{
+			return (keyInfo.Key == key);
+		}
 
-        static public bool GetKeyDown(SDL.SDL_Keycode key)
+		static public bool GetKeyDown(SDL.SDL_Keycode key)
         {
 			// 20250304 SDL 추가
 			if(Engine.Instance.myEvent.type

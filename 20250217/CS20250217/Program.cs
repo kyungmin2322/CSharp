@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+using System.Net.Sockets;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace CS20250217
 {
@@ -75,7 +72,7 @@ namespace CS20250217
             {
                 List<string> scene = new List<string>();
 
-                sr = new StreamReader("level02.map");
+                sr = new StreamReader("level01.map");
                 while(!sr.EndOfStream)
                 {
                     scene.Add(sr.ReadLine());
@@ -88,10 +85,6 @@ namespace CS20250217
 				Console.WriteLine(ex.FileName);
                 Console.WriteLine(ex.Source);
 				Console.WriteLine(ex.Message);
-            }
-            catch(WrongPasswordException e)
-            {
-                Console.WriteLine(e.Message);
             }
             catch(Exception ex)
             {
