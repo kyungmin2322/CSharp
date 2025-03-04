@@ -105,8 +105,12 @@ namespace CS20250217
 			}
             */
 
+            Engine.Instance.Init();
+
             Engine.Instance.Load("level01.map");
             Engine.Instance.Run();
+
+            Engine.Instance.Quit();
 		}
     }
 }

@@ -27,5 +27,10 @@ namespace CS20250217
         {
             return (keyInfo.Key == key) ;
         }
-    }
+
+		public static void ClearInput()
+		{
+			keyInfo = new ConsoleKeyInfo();
+		}
+	}
 }

@@ -56,6 +56,7 @@ namespace CS20250217
             }
 		}
         
+        /*
         public bool IsWall(int x, int y)
         {
             foreach(GameObject obj in gameObjects)
@@ -67,5 +68,6 @@ namespace CS20250217
             }
             return false;
         }
+        */
     }
 }

@@ -8,7 +8,16 @@ namespace CS20250217
 {
 	public class Time
 	{
-		public static TimeSpan deltaTime;
+		public static float deltaTime
+		{
+			get
+			{
+				return (float)deltaTimeSpan.TotalMilliseconds;
+			}
+
+		}
+
+		protected static TimeSpan deltaTimeSpan;
 
 		protected static DateTime currentTime;
 		protected static DateTime lastTime;
@@ -16,7 +25,7 @@ namespace CS20250217
 		public static void Update()
 		{
 			currentTime = DateTime.Now;
-			deltaTime = currentTime - lastTime;
+			deltaTimeSpan = currentTime - lastTime;
 			lastTime = currentTime;
 		}
 	}

@@ -9,6 +9,9 @@ namespace CS20250217
     public class Monster : GameObject
     {
         private Random rand = new Random();
+
+        private float elapsedTime = 0;
+
         public Monster(int inX, int inY, char inShape)
         {
             X = inX;
@@ -19,32 +22,48 @@ namespace CS20250217
         }
 
         public override void Update()
-        {
-            int newX = X;
-            int newY = Y;
-            int randomValue = rand.Next(0, 4);
-
-            switch(randomValue)
-            {
-                case 0:
-                    newY++;
-                    break;
-                case 1:
-					newY--;
-                    break;
-                case 2:
-                    newX++;
-                    break;
-                case 3:
-                    newX--;
-                    break;
-            }
-
-			if (!Engine.Instance.world.IsWall(newX, newY))
+		{
+			if(elapsedTime >= 500.0f)
 			{
-				X = newX;
-				Y = newY;
+				int Direction = rand.Next(0, 4);
+
+				if(Direction == 0)
+				{
+					if(!PredictCollision(X, Y - 1))
+					{
+						Y--;
+					}
+				}
+				if(Direction == 1)
+				{
+					if(!PredictCollision(X, Y + 1))
+					{
+						Y++;
+					}
+				}
+				if(Direction == 2)
+				{
+					if(!PredictCollision(X - 1, Y))
+					{
+						X--;
+					}
+				}
+				if(Direction == 3)
+				{
+					if(!PredictCollision(X + 1, Y))
+					{
+						X++;
+					}
+				}
+				elapsedTime = 0;
 			}
+			else
+			{
+				elapsedTime += Time.deltaTime;
+			}
+
+			Console.SetCursorPosition(30, 10);
+			Console.Write(Time.deltaTime);
 		}
-    }
+	}
 }

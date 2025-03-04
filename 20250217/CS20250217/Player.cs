@@ -18,32 +18,39 @@ namespace CS20250217
         }
 
         public override void Update()
-        {
-            int newX = X;
-            int newY = Y;
+		{
+			//wasd
+			//up, down, left, right`
+			//GetKeyDown
+			if(Input.GetKeyDown(ConsoleKey.W) || Input.GetKeyDown(ConsoleKey.UpArrow))
+			{
+				if(!PredictCollision(X, Y - 1))
+				{
+					Y--;
+				}
+			}
+			if(Input.GetKeyDown(ConsoleKey.S) || Input.GetKeyDown(ConsoleKey.DownArrow))
+			{
+				if(!PredictCollision(X, Y + 1))
+				{
+					Y++;
+				}
 
-            if(Input.GetKeyDown(ConsoleKey.W) || Input.GetKeyDown(ConsoleKey.UpArrow))
-            {
-                newY--;
-            }
-            if (Input.GetKeyDown(ConsoleKey.S) || Input.GetKeyDown(ConsoleKey.DownArrow))
-            {
-                newY++;
-            }
-            if (Input.GetKeyDown(ConsoleKey.A) || Input.GetKeyDown(ConsoleKey.LeftArrow))
-            {
-                newX--;
-            }
-            if (Input.GetKeyDown(ConsoleKey.D) || Input.GetKeyDown(ConsoleKey.RightArrow))
-            {
-                newX++;
-            }
-
-            if(!Engine.Instance.world.IsWall(newX, newY))
-            {
-                X = newX;
-                Y = newY;
-            }
-        }
-    }
+			}
+			if(Input.GetKeyDown(ConsoleKey.A) || Input.GetKeyDown(ConsoleKey.LeftArrow))
+			{
+				if(!PredictCollision(X - 1, Y))
+				{
+					X--;
+				}
+			}
+			if(Input.GetKeyDown(ConsoleKey.D) || Input.GetKeyDown(ConsoleKey.RightArrow))
+			{
+				if(!PredictCollision(X + 1, Y))
+				{
+					X++;
+				}
+			}
+		}
+	}
 }

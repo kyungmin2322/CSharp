@@ -132,21 +132,31 @@ namespace CS20250217
 
         public DateTime lastTime;
 
-        public void Run()
-        {
-            double fps = 1.0 / Time.deltaTime.TotalMilliseconds;
-            Console.CursorVisible = false;
-            while(isRunning)
-            {
-                Time.Update();
+		public void Run()
+		{
+			float frameTime = 1000.0f / 60.0f;
+			float elapsedTime = 0;
+			Console.CursorVisible = false;
+			while(isRunning)
+			{
+				Time.Update();
 
-                ProcessInput();
-                Update();
-                Render();
-                Input.ClearInput();
-            }
-        }
+				ProcessInput();
+				Update();
+				if(elapsedTime >= frameTime)
+				{                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+					Render();
+					elapsedTime = 0;
+				}
+				else
+				{
+					elapsedTime += Time.deltaTime;
+				}
 
-        public World world;
+				Input.ClearInput();
+			}
+		}
+
+		public World world;
     }
 }
