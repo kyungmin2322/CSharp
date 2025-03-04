@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SDL2;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,7 +16,11 @@ namespace CS20250217
         public bool isTrigger = false;
         public bool isCollide = false;
 
-        public virtual void Update()
+		// 20250304 SDL 추가
+        public SDL.SDL_Color color;
+        public int spriteSize = 15;
+
+		public virtual void Update()
         {
 
         }
@@ -26,7 +31,19 @@ namespace CS20250217
             //Console.SetCursorPosition(X, Y);
             //Console.Write(Shape);
             Engine.backBuffer[Y, X] = Shape;
-        }
+
+			// 20250304 SDL 추가
+			SDL.SDL_SetRenderDrawColor(Engine.Instance.myRenderer,
+				color.r, color.g, color.b, color.a);
+			// SDL.SDL_RenderDrawPoint(Engine.Instance.myRenderer, X, Y);
+			SDL.SDL_Rect myRect;
+			myRect.x = X * spriteSize;
+			myRect.y = Y * spriteSize;
+			myRect.w = spriteSize;
+			myRect.h = spriteSize;
+
+			SDL.SDL_RenderFillRect(Engine.Instance.myRenderer, ref myRect);
+		}
 
 		public bool PredictCollision(int newX, int newY)
 		{
