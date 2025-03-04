@@ -15,6 +15,11 @@ namespace CS20250217
             Shape = inShape;
             orderLayer = 2;
             isCollide = true;
-        }
-    }
+
+            // 20250304 SDL 추가
+            color.r = 255;
+            color.g = 0;
+            color.b = 0;
+		}
+	}
 }

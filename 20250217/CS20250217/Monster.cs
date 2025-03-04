@@ -19,9 +19,14 @@ namespace CS20250217
             Shape = inShape;
             orderLayer = 5;
             isTrigger = true;
-        }
 
-        public override void Update()
+			// 20250304 SDL 추가
+			color.r = 100;
+			color.g = 100;
+			color.b = 100;
+		}
+
+		public override void Update()
 		{
 			if(elapsedTime >= 500.0f)
 			{
