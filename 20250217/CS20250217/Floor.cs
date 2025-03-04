@@ -14,11 +14,14 @@ namespace CS20250217
             Y = inY;
             Shape = inShape;
             orderLayer = 1;
-        }
 
-        //public override void Render()
-        //{
+			// 20250304 SDL 추가
+            
+		}
 
-        //}
-    }
+		//public override void Render()
+		//{
+
+		//}
+	}
 }
