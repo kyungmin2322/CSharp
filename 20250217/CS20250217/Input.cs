@@ -26,6 +26,7 @@ namespace CS20250217
 		}
 
 		static protected ConsoleKeyInfo keyInfo;
+
 		static public bool GetKeyDown(ConsoleKey key)
 		{
 			return (keyInfo.Key == key);

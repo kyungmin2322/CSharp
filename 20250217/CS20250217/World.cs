@@ -14,7 +14,10 @@ namespace CS20250217
 
         public List<GameObject> GetAllGameObjects
         {
-            get { return gameObjects; }
+            get
+            {
+                return gameObjects;
+            }
         }
 
 		public void Instanciate(GameObject gameObject)

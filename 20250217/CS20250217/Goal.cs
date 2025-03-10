@@ -20,6 +20,8 @@ namespace CS20250217
             color.r = 0;
             color.g = 255;
             color.b = 255;
+
+            LoadBmp("data/goal.bmp");
 		}
 	}
 }
