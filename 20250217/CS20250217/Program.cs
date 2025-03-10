@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net.Sockets;
+using System.Reflection;
 using System.Text;
 
 namespace CS20250217
@@ -45,9 +46,9 @@ namespace CS20250217
         */
 		static void Main(string[] args)
         {
+            /* 20250304
             //Engine.Instance.Load();
             //Engine.Instance.Run();
-            /*
             // Sort(정렬)
             int [] numbers = { 1, 5, 2, 3, 6, 7, 8, 10, 9 };
 
@@ -97,7 +98,7 @@ namespace CS20250217
 				sr.Close();
 			}
             */
-
+            
             Engine.Instance.Init();
 
             Engine.Instance.Load("level01.map");
